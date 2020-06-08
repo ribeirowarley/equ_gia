@@ -1,0 +1,7 @@
+# gitignore 
+# Lines that start with '#' are comments.
+
+.asv
+.fig
+.csv
+.dat
