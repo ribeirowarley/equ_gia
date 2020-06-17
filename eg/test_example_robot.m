@@ -12,10 +12,10 @@ clc; clear; close all; tic;
 
 %%%%%%%%%%%%%% Simulation parameters
 
-g = 1/6; % Gravity [G]]
-inc = 0; % Inclination [deg]
-surf_t = 'rough'; % Surface type (flat_, rough)
-acc = [0 7 0]'; % Base acceleration [m/s^2]
+g = 1; % Gravity [G]]
+inc = 65; % Inclination [deg]
+surf_t = 'flat_'; % Surface type (flat_, rough)
+acc = [0 0 0]'; % Base acceleration [m/s^2]
 robot = 'grip'; % Type of robot (leg_, grip)
 F_hold = 3.2;  % Holding Force [N]
 grasp_flag = [1 1 1 0]; % Grasping flag
