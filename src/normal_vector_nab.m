@@ -1,5 +1,5 @@
 %%%%%% Equilibrium
-%%%%%% equ_normal_vec
+%%%%%% normal_vector_nab
 %%%%%% 
 %%%%%% Obtain normal vectors for equilibrium polyhedron
 %%%%%% 
@@ -12,9 +12,8 @@
 % Function variables:
 %
 %     OUTPUT
-%         n_ab         : Normal vector for all possible tumbling axis faces of the equilibrium polyhedron (3xab_num matrix)
-%         n_ab_u       : Unit normal vector for all possible tumbling axis faces of the equilibrium polyhedron 
-%                        (3xab_num matrix)
+%         n_ab         : Normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+%         n_ab_u       : Unitary normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
 %     INPUT
 %         tumbling_axes           : Matrix with the number legs for tumbling axes (matrix: tumbling_axes_number x 2). Each 
 %                                   row represents one tumbling axis, while the columns represent the number of the leg for 

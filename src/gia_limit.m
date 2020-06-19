@@ -31,9 +31,8 @@
 %        M0                   : External moment acting at the center of gravity [Nm] (3x1 vector)
 %        F0                   : External force acting at the center of gravity [N] (3x1 vector)
 %        F_hold               : Maximum holding force [N] (scalar)
-%        n_ab                 : Normal vector for all possible tumbling axis faces of the equilibrium polyhedron (3xab_num matrix)
-%        n_ab_u               : Unit normal vector for all possible tumbling axis faces of the equilibrium polyhedron 
-%                              (3xab_num matrix)
+%        n_ab                 : Normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+%        n_ab_u               : Unitary normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
 
 function gia_limit_nab = gia_limit(n, mass, grasp_flag, tumbling_axes, tumbling_axes_number, POS_e, M0, F0, F_hold, n_ab, n_ab_u)
 
