@@ -9,7 +9,7 @@
   * equ_gia_polyhedron_calc()
   * equ_tumbling_axes_ab()
   * gia_limit()
-  * 
+  * normal_vector_nab()
 * Libraries
   * SpaceDyn
   * Tools
@@ -218,21 +218,72 @@ OUTPUT:
 
 INPUT:
 
-* `n`                       : Total number of legs (scalar)
-* `grasp_flag`       : Flag of grasping condition of each leg (1: grasping, 0: not grasping) (1xn vector)
-* `mass`             : Total mass of the robot [kg] (scalar)
-* `tumbling_axes`           : Matrix with the number legs for tumbling axes (matrix: tumbling_axes_number x 2). Each row represents one tumbling axis, while the columns represent the number of the leg for that specific axis
-* `tumbling_axes_number`    : Total number of possible tumbling axis (scalar)
-* `POS_e`            : End-effector (legs' contact) positions POS_e = [p1 p2 ... pn] [m] (3xn matrix) 
-* `F0`               : External force acting at the center of gravity [N] (3x1 vector)
-* `M0`               : External moment acting at the center of gravity [Nm] (3x1 vector)
-* `F_hold`           : Maximum holding force [N] (scalar)
-
-
-%        n_ab                 : Normal vector for all possible tumbling axis faces of the equilibrium polyhedron (3xab_num matrix)
-%        n_ab_u               : Unit normal vector for all possible tumbling axis faces of the equilibrium polyhedron 
-%                              (3xab_num matrix)
+* `n`                    : Total number of legs (scalar)
+* `grasp_flag`           : Flag of grasping condition of each leg (1: grasping, 0: not grasping) (1xn vector)
+* `mass`                 : Total mass of the robot [kg] (scalar)
+* `tumbling_axes`        : Matrix with the number legs for tumbling axes (matrix: tumbling_axes_number x 2). Each row represents one tumbling axis, while the columns represent the number of the leg for that specific axis
+* `tumbling_axes_number` : Total number of possible tumbling axis (scalar)
+* `POS_e`                : End-effector (legs' contact) positions POS_e = [p1 p2 ... pn] [m] (3xn matrix) 
+* `F0`                   : External force acting at the center of gravity [N] (3x1 vector)
+* `M0`                   : External moment acting at the center of gravity [Nm] (3x1 vector)
+* `F_hold`               : Maximum holding force [N] (scalar)
+* `n_ab`				 : Normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+* `n_ab_u`				 : Unitary normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
 
 *Note:* This function is required for `equ_gia_polyhedron_calc()`
 
 
+### normal_vector_nab() ###
+
+This function calculates the vector normal to tumbling axes from center of gravity, which is the normal vector to the limit planes.
+
+*Function variables:*
+
+OUTPUT:
+
+* `n_ab`				 : Normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+* `n_ab_u`				 : Unitary normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+
+INPUT:
+
+* `tumbling_axes`        : Matrix with the number legs for tumbling axes (matrix: tumbling_axes_number x 2). Each row represents one tumbling axis, while the columns represent the number of the leg for that specific axis
+* `tumbling_axes_number` : Total number of possible tumbling axis (scalar)
+* `POS_e`                : End-effector (legs' contact) positions POS_e = [p1 p2 ... pn] [m] (3xn matrix) 
+* `pg`               : Center of Gravity position [m] (3x1 vector)
+
+*Note:* This function is required for `equ_gia_polyhedron_calc()`
+
+
+### Libraries ###
+
+This repository also includes other functions to support some extra calculations, such as the [SpaceDyn toolbox](http://www.astro.mech.tohoku.ac.jp/spacedyn/index.html). 
+
+**NOTE**: The functions in the `\lib` directory are *not required* for the functions in the `\src` folder, but they *are required* for the examples in the `\eg` directory. 
+
+##### SpaceDyn #####
+
+The functions are in the directory `lib\spacedyn_v2r0`. Please refer to the original SpaceDyn website for more detailed documentation or check the documentation included in `lib\spacedyn_v2r0\SpaceDyn MATLAB Reference\index_e.html`
+
+##### Tools #####
+
+Some extra functions are included in the directory `lib\tools` for the calculations required for the examples in `\eg` folder. The functions are presented here with a brief description. More details, such as inputs and outputs, can be found in each function file .
+
+* `ah1_SV()` : State Variables definition, such as velocities and positions of joints
+* `ah_i_kine_3dof_minote()` : Calculates the inverse kinematics for a 3 DoF manipulator
+* `get_cog()` : Calculates the center of gravity of a robot
+* `get_fwd_kin()` : Calculates forward kinematics (end-effector positions from joints angular positions)
+* `get_inertial_force_linear()` : Calculates total inertial force acting in the center of gravity based on each link acceleration
+* `get_map_pos()` : Obtain the nearest position in the map grid for a point 
+* `HubRobo_grip_LP()` : Link Parameters (robot model) definition for the robot developed at Space Robotics Lab 
+* `ini_draw_create_robot()` : Create parameters for plotting the robot
+* `ini_robot()` : Initialize all the parameters related to the robot model 
+* `ini_surf()` : Initialize all the parameters related to the surface model
+* `res_draw_map()` : Plot the surface map in a figure
+* `res_draw_robot()` : Plot the robot model in a figure
+* `res_draw_stability_polyhedron()` : Plot the calculated stability polyhedron for GIA in a figure
+* `res_draw_vector()` : Plot a vector from a specified origin 
+* `rot_2xy()` : Calculate the rotation matrix in a x-y plane
+* `rot_x()` : Calculate the rotation matrix around x-axis
+* `rot_y()` : Calculate the rotation matrix around y-axis
+* `rot_z()` : Calculate the rotation matrix around z-axis
+* `set_fig_3D()` : Change figure settings, such as font, font size, axis limits, etc.
