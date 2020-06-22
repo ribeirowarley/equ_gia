@@ -214,7 +214,7 @@ This function calculates maximum GIA acceleration for direction normal to the tu
 
 OUTPUT:
 
-* `gia_limit_nab`       : Acceleration limit for all possible tumbling axis faces of the equilibrium polyhedron (3xab_num matrix)
+* `gia_limit_nab`       : Acceleration limit for all possible tumbling axis faces of the equilibrium polyhedron (3 x tumbling_axes_number matrix)
 
 INPUT:
 

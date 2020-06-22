@@ -18,7 +18,7 @@
 %
 %     OUTPUT
 %         gia_limit_nab       : Acceleration limit for all possible tumbling axis faces of the equilibrium polyhedron 
-%                               (3xab_num matrix)
+%                               (3 x tumbling_axes_number matrix)
 %     INPUT
 %        n                    : Total number of legs (scalar)
 %        grasp_flag           : Flag of grasping condition of each leg (1: grasping, 0: not grasping) (1xn vector)
