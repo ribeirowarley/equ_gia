@@ -1,7 +1,7 @@
 %%%%%% Equilibrium
 %%%%%% equ_gia_inclination_margin
 %%%%%% 
-%%%%%% Calculate acceleration margin based on the stability polyhedron
+%%%%%% Calculate inclination margin based on the stability polyhedron
 %%%%%% 
 %%%%%% Created 2020-02-06
 %%%%%% Warley Ribeiro
@@ -27,8 +27,8 @@
 % Function variables:
 %
 %     OUTPUT
-%         inclination_margin    : Angular margin for total acceleration considering the support polyhedron [deg] (scalar)
-%         inclination_margin_ab : Angular margin for each tumbling axis [rad] (1xn vector)
+%         inclination_margin    : Inclination margin for total acceleration considering the support polyhedron [deg] (scalar)
+%         inclination_margin_ab : Inclination margin for each tumbling axis [rad] (1xn vector)
 %     INPUT
 %         polyhedron            : Variables to define the shape of the polyhedron (struct)
 %         gia                   : Gravito-Inertial Acceleration [m/s^2] (3x1 vector)

@@ -1,5 +1,5 @@
 %%%%%% Equilibrium
-%%%%%% equ_acc_limit
+%%%%%% gia_limit
 %%%%%% 
 %%%%%% Obtain maximum GIA acceleration for normal directions of tumbling axes
 %%%%%% 
@@ -17,23 +17,22 @@
 % Function variables:
 %
 %     OUTPUT
-%         a_lim        : Acceleration limit for all possible tumbling axis faces of the equilibrium polyhedron 
-%                       (3xab_num matrix)
+%         gia_limit_nab       : Acceleration limit for all possible tumbling axis faces of the equilibrium polyhedron 
+%                               (3 x tumbling_axes_number matrix)
 %     INPUT
-%         LP           : Link Parameters (SpaceDyn class)
-%         SV           : State Variables (SpaceDyn class)
-%         ab           : Matrix with the number legs for tumbling axes (ab_num x 2 matrix). Each row represents one tumbling
-%                        axis, while the columns represent the number of the leg for that specific axis
-%         ab_num       : Total number of possible tumbling axis (scalar)
-%         POS_e        : End-effector positions (3xnum_limb matrix)
-%         M0           : External moment in the center of gravity [Nm] (3x1 vector)
-%         F0           : External Force in the center of gravity [N] (3x1 vector)
-%         F_grip       : Maximum gripping force [N] (scalar)
-%         n_ab         : Normal vector for all possible tumbling axis faces of the equilibrium polyhedron 
-%                        (3xab_num matrix)
-%         n_ab_u       : Unit normal vector for all possible tumbling axis faces of the equilibrium polyhedron 
-%                        (3xab_num matrix)
-%         pg           : Center of Gravity position [m] (3x1 vector)
+%        n                    : Total number of legs (scalar)
+%        grasp_flag           : Flag of grasping condition of each leg (1: grasping, 0: not grasping) (1xn vector)
+%        mass                 : Total mass of the robot [kg] (scalar)
+%        tumbling_axes        : Matrix with the number legs for tumbling axes (matrix: tumbling_axes_number x 2). Each 
+%                               row represents one tumbling axis, while the columns represent the number of the leg for 
+%                               that specific axis
+%        tumbling_axes_number : Total number of possible tumbling axis (scalar)
+%        POS_e                : End-effector positions POS_e = [p1 p2 ... pn] [m] (3xn matrix) 
+%        M0                   : External moment acting at the center of gravity [Nm] (3x1 vector)
+%        F0                   : External force acting at the center of gravity [N] (3x1 vector)
+%        F_hold               : Maximum holding force [N] (scalar)
+%        n_ab                 : Normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
+%        n_ab_u               : Unitary normal vector to the tumbling axis from CoG for all possible tumbling axes (3 x tumbling_axes_number matrix)
 
 function gia_limit_nab = gia_limit(n, mass, grasp_flag, tumbling_axes, tumbling_axes_number, POS_e, M0, F0, F_hold, n_ab, n_ab_u)
 

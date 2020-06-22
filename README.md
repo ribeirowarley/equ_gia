@@ -9,6 +9,7 @@ This README describes basic information on Gravito-inertial Acceleration (GIA) s
 ### How do I get set up? ###
 
 * Download the files from this repository
+* Check the documentation in the `\doc` directory. There you can find more detailed information about the use of functions and examples.
 * Open MATLAB (the code was developed in MATLAB 2019a. It might not run properly in older versions)
 * Add the folder `equ_gia` to your workspace.
 * Run the file `\eg\test_example_robot.m` and and check if you can see the result image.
