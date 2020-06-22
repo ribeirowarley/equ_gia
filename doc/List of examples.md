@@ -38,6 +38,21 @@ This example can be easily adapted for the user parameters, by changing the corr
 * Add the folders `\eg`, `\lib\tools` and `\src` to your MATLAB path
 * Run `gia_function_simple_usage_example.m`
 
+
+##### Simulation conditions #####
+
+* Gravity: 9.81 m/s^2
+* Contact positions:
+  * Position 1: [ 1  1  0] [m]
+  * Position 2: [-1  1  0] [m]
+  * Position 3: [-1 -1  0] [m]
+  * Position 4: [ 1 -1  0] [m]
+* Maximum holding force: 5 N
+* Center of Gravity position: [0 0 1] [m]
+* Mass: 2 kg
+* No acceleration or external forces or moments
+
+
 ### test_example_robot.m ###
 
 This example is also a simple test, but based on a quadruped robot model defined by the [SpaceDyn toolbox](http://www.astro.mech.tohoku.ac.jp/spacedyn/index.html) variables and a pre-selected surface map.
@@ -57,3 +72,18 @@ This example also includes the calculation of gravito-inertial acceleration and 
 * Clone or download the `equ_gia` repository
 * Add the folders `\eg`, `\lib` (and all the sub-folders) and `\src` to your MATLAB path
 * Run `test_example_robot.m`
+
+
+##### Simulation conditions #####
+
+* Gravity: 9.81 m/s^2
+* Surface inclination: 65 deg
+* Surface type: flat
+* Contact positions:
+  * Position 1: [ 0.1196  0.1196 -0.08] [m]
+  * Position 2: [-0.1206  0.1196 -0.08] [m]
+  * Position 3: [-0.1206 -0.1206 -0.08] [m]
+* Maximum holding force: 3.2 N
+* Center of Gravity position: [-0.0014  0.0004  0.0629] [m]
+* Mass: 1.7050 kg
+* No acceleration or external forces or moments
